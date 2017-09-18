@@ -5,18 +5,29 @@
 <html>
 <head>
   <%@ include file="/WEB-INF/views/include/head.jsp"%>
-
+<style>
+      .main-footer {
+        bottom: 20px !important;
+        height: 40px !important;
+        position: relative;
+        line-height: 10px !important;
+      }
+  .open{
+    width: 190px !important;
+  }
+  .leftBar{
+    margin-left:190px !important;
+  }
+  .frame{
+    margin-left: 40px;
+  }
+</style>
 </head>
-
-<script type="text/javascript">
-var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264360398' type='text/javascript'%3E%3C/script%3E"));
-</script>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="javascript:void(0);" class="logo" id = "a1">
+    <a href="javascript:void(0);" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <c:if test="${user.username eq 'admin'}">
         <span class="logo-mini"><b>A</b>dmin</span>
@@ -48,7 +59,7 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
               <li class="user-header">
                 <img src="${contextPath}/static/img/photo2.png" class="img-circle" alt="User Image">
 
-                <p>
+                <p style = "text-align:center">
                   ${user.username}
                   <%--<small>Member since Nov. 2012</small>--%>
                 </p>
@@ -56,7 +67,7 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="center-block" style="width:30px;background-color:#ccc;">
-                  <a href="${contextPath}/a/logout" class="btn btn-default btn-flat">退出</a>
+                  <a href="${contextPath}/logout" class="btn btn-default btn-flat">退出</a>
                 </div>
               </li>
             </ul>
@@ -65,11 +76,11 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
       </div>
 
     </nav>
-  </header >
+  </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar" id = "aside1">
+  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar" >
+    <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
@@ -93,15 +104,16 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.1%E5%B8%82%E5%9C%BA%E9%87%87%E8%B4%AD%E6%80%BB%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90%2F_portal%2F1.1%E5%B8%82%E5%9C%BA%E9%87%87%E8%B4%AD%E5%87%BA%E5%8F%A3%E6%80%BB%E8%B6%8B%E5%8A%BF&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.1市场采购总趋势</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.2%E5%8E%9F%E4%BA%A7%E5%9C%B0%E5%88%86%E6%9E%90%2F_portal%2F1.2%E5%8E%9F%E4%BA%A7%E5%9C%B0%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.2原产地出口分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.3%E6%8A%B5%E8%BF%90%E5%8C%BA%E5%9F%9F%E5%88%86%E6%9E%90%2F_portal%2F1.3%E6%8A%B5%E8%BF%90%E5%8C%BA%E5%9F%9F%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.3抵运区域出口分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.4%E6%8A%B5%E8%BF%90%E5%9B%BD%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%2F_portal%2F1.4%E6%8A%B5%E8%BF%90%E5%9B%BD%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.4抵运国统计分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.5%E5%A4%96%E8%B4%B8%E5%85%AC%E5%8F%B8%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90%2F_portal%2F1.5%E5%A4%96%E8%B4%B8%E5%85%AC%E5%8F%B8%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.5外贸公司入驻分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.7%E5%95%86%E6%88%B7%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90%2F_portal%2F1.6%E5%95%86%E6%88%B7%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90&Page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.6商户入驻分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.8%E6%8A%A5%E5%85%B3%E8%A1%8C%E7%BB%9F%E8%AE%A1%2F_portal%2F1.7%E6%8A%A5%E5%85%B3%E8%A1%8C%E7%BB%9F%E8%AE%A1&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.7报关行统计分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.9%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%2F_portal%2F1.8%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.8商品分类出口分析</a></li>
-            <li><a href="http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.10%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF%E5%87%BA%E5%8F%A3%E5%9B%BD%E5%8C%BA%E5%9F%9F%E5%88%86%E6%9E%90%2F_portal%2F1.9%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF%E5%87%BA%E5%8F%A3%E5%9B%BD%E5%8C%BA%E5%9F%9F%E5%88%86%E6%9E%90&Page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456" target="myiframe"></i> 1.9一带一路出口分析</a></li>
+            <li><a href="${contextPath}/report/goReport?type=1" target="myiframe"></i> 1.1市场采购总趋势</a></li>
+            <li><a href="${contextPath}/report/goReport?type=2" target="myiframe"></i> 1.2原产地出口分析</a></li>
+            <li><a href="${contextPath}/report/goReport?type=3" target="myiframe"></i> 1.3抵运区域出口分析</a></li>
+            <li><a href="${contextPath}/report/goReport?type=4" target="myiframe"></i> 1.4抵运国统计分析</a></li>
+            <li><a href="${contextPath}/report/goReport?type=5" target="myiframe"></i> 1.5外贸公司总趋势</a></li>
+            <li><a href="${contextPath}/report/goReport?type=6" target="myiframe"></i> 1.6商户总趋势</a></li>
+            <li><a href="${contextPath}/report/goReport?type=7" target="myiframe"></i> 1.7报关行统计分析</a></li>
+            <li><a href="${contextPath}/report/goReport?type=8" target="myiframe"></i> 1.8商品分类出口分析</a></li>
+            <li><a href="${contextPath}/report/goReport?type=9" target="myiframe"></i> 1.9一带一路出口分析</a></li>
+			<li><a href="${contextPath}/report/goReport?type=10" target="myiframe"></i> 1.10收汇情况分析</a></li>
           </ul>
         </li>
       </ul>
@@ -117,7 +129,7 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
                <%--sandbox="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">--%>
 
       <%--</iframe>--%>
-    <iframe src = "http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.1%E5%B8%82%E5%9C%BA%E9%87%87%E8%B4%AD%E6%80%BB%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90%2F_portal%2F1.1%E5%B8%82%E5%9C%BA%E9%87%87%E8%B4%AD%E5%87%BA%E5%8F%A3%E6%80%BB%E8%B6%8B%E5%8A%BF&page=%E9%A1%B5%201&NQUser=gwh&NQPassword=gwh123456"
+    <iframe src = "${contextPath}/report/goReport?type=1"
             id="myiframe" name="myiframe" scrolling="no" frameborder="0" ></iframe>
     <%--<iframe src = "http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.2%E5%8E%9F%E4%BA%A7%E5%9C%B0%E5%88%86%E6%9E%90%2F_portal%2F1.2%E5%8E%9F%E4%BA%A7%E5%9C%B0%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=weblogic&NQPassword=Test_2017" id="myiframe" name="myiframe" scrolling="yes"--%>
             <%--frameborder="0" ></iframe>--%>
@@ -125,14 +137,13 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
 
   </div>
   <!-- /.content-wrapper -->
-  <footer id = "foot1" class="main-footer">
+  <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.1.0
     </div>
-    <strong>Copyright &copy; 2016-2017 常熟服装城市场采购监管平台报表系统</strong> All rights
+    <strong>Copyright &copy; 2016-2017 常熟服装城市场采购监管中心</strong> All rights
     reserved.
   </footer>
-
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
@@ -156,15 +167,14 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
 //      alert(flag)
       if(flag){
           flag = false;
-//          buju(200);
-          iframe.css("width",bWidth-220+"px");
-//          alert(iframe.css("width"));
-          $("#divForShow").css("left","230");
-
+          iframe.css("width",bWidth-180+"px");
+          toggleWidth("open");
+          $("#divForShow").css("left","190px");
 //          var bWidth = iframe.parent().css("width");
 //          iframe.css("width",bWidth);
       }else{
           flag = true;
+		  toggleWidth("close");
           $("#divForShow").css("left","0px");
           iframe.css("width",bWidth+"px");
       }
@@ -175,9 +185,9 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
             var height1 = parseInt($("#divForShow").css("height"));
 //            alert(height1);
             if(height1>700){
-                height1 =height1-145;
+                height1 =height1-125;
             }else{
-                height1 =height1-130;
+                height1 =height1-110;
             }
             $("#myiframe").css("height",height1);
             var bWidth = iframe.parent().css("width");
@@ -185,22 +195,42 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3C
 
         }catch (ex){}
     }
-    function buju(width1){
-        $("#nav1").css("position","relative");
-        $("#foot1").css("position","relative");
-        $("#aside1").css("width",width1);
-        $("#a1").css("width",width1);
-        var width = $("#nav1").css("width");
-        width = parseInt(width.substring(0,width.indexOf("px")))+30+"px";
-//        alert($("#nav1").css("left"));
-        $("#nav1").css("left","50px");
-        $("#nav1").css("width",width);
-        width = $("#foot1").css("width");
-        width = parseInt(width.substring(0,width.indexOf("px")))+30+"px";
-        alert(width);
-        $("#foot1").css("width",width);
-        alert($("#foot1").css("width"));
+    function toggleWidth(open){
+        if(open=="open"){
+            $(".main-sidebar").eq(0).addClass("open");
+            $(".logo").eq(0).addClass("open");
+            $("#nav1").addClass("leftBar");
+            $(".main-footer").eq(0).addClass("leftBar");
+//            $("#divForShow").css("left","190px !important");
+        }else{
+			 $(".main-sidebar").eq(0).removeClass("open");
+            $(".logo").eq(0).removeClass("open");
+            $("#nav1").removeClass("leftBar");
+            $(".main-footer").eq(0).removeClass("leftBar");
+		}
     }
+  var iframe1 = document.getElementById("myiframe");
+  if (iframe1.attachEvent) {
+      iframe1.attachEvent("onload", function() {
+          //iframe加载完成后你需要进行的操作
+      });
+  } else {
+      iframe1.onload = function() {
+//          alert($("#myiframe").html())
+          //iframe加载完成后你需要进行的操作
+      };
+  }
+
+
+//  $("#myiframe").on("change",function(){
+//        alert($("#myiframe").html())
+//        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+//        document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3Cscript src='"
+//            + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264360398' type='text/javascript'%3E%3C/script%3E"));
+//    });
+
 </script>
 </body>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1264360398'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264360398%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
 </html>

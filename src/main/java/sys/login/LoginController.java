@@ -22,7 +22,7 @@ public class LoginController  {
     }
     @RequestMapping(value = "login")
     public String login(String username, String password, HttpServletRequest request) {
-        if(StringUtils.isEmpty(username)){
+
             String[] users = Global.getAccount();
             String pwd = Global.getPwd();
             for(String name:users){
@@ -32,6 +32,7 @@ public class LoginController  {
                     return "redirect:/main" ;
                 }
             }
+        if(StringUtils.isNotEmpty(username)){
             request.setAttribute("msg","密码错误！请联系管理员");
         }else{
             request.setAttribute("msg","请重新登陆");

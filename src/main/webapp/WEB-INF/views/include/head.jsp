@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name-="rendered" content="webkit" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<title>常熟服装城报表分析</title>
+<title>常熟服装城市场采购监管数据分析系统</title>
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bower_components/bootstrap/dist/bootstrap.min.css">
 <!-- Font Awesome -->
