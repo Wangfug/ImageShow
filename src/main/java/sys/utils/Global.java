@@ -67,7 +67,7 @@ public class Global {
 	/**
 	 * 获取登录密码
 	 */
-	public static String getPwd() {
-		return getConfig("pwd");
+	public static String[] getPwd() {
+		return getConfig("pwd").split("/");
 	}
 }

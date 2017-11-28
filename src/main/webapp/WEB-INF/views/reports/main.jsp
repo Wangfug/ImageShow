@@ -104,16 +104,66 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="${contextPath}/report/goReport?type=1" target="myiframe"></i> 1.1市场采购总趋势</a></li>
-            <li><a href="${contextPath}/report/goReport?type=2" target="myiframe"></i> 1.2原产地出口分析</a></li>
-            <li><a href="${contextPath}/report/goReport?type=3" target="myiframe"></i> 1.3抵运区域出口分析</a></li>
-            <li><a href="${contextPath}/report/goReport?type=4" target="myiframe"></i> 1.4抵运国统计分析</a></li>
-            <li><a href="${contextPath}/report/goReport?type=5" target="myiframe"></i> 1.5外贸公司总趋势</a></li>
-            <li><a href="${contextPath}/report/goReport?type=6" target="myiframe"></i> 1.6商户总趋势</a></li>
-            <li><a href="${contextPath}/report/goReport?type=7" target="myiframe"></i> 1.7报关行统计分析</a></li>
-            <li><a href="${contextPath}/report/goReport?type=8" target="myiframe"></i> 1.8商品分类出口分析</a></li>
-            <li><a href="${contextPath}/report/goReport?type=9" target="myiframe"></i> 1.9一带一路出口分析</a></li>
-			<li><a href="${contextPath}/report/goReport?type=10" target="myiframe"></i> 1.10收汇情况分析</a></li>
+            <c:if test="${user.username eq 'gwh' || user.username eq 'szf'}">
+            <li >
+                <a href="${contextPath}/report/goReport?type=1.1" target="myiframe"> 市场采购总趋势
+                </a>
+            </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh' || user.username eq 'szf'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=2.1" target="myiframe"> 原产地出口分析
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=3.1" target="myiframe"> 抵运区域出口分析
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=4.1" target="myiframe"> 抵运国统计分析
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=5.1" target="myiframe"> 外贸公司总趋势
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=6.1" target="myiframe"> 商户总趋势
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=7.1" target="myiframe"> 报关行统计分析
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=8.1" target="myiframe"> 商品分类出口分析
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=9.1" target="myiframe"> 一带一路出口分析
+                </a>
+              </li>
+            </c:if>
+            <c:if test="${user.username eq 'gwh'}">
+              <li>
+                <a href="${contextPath}/report/goReport?type=10.1" target="myiframe"> 收汇情况分析
+                </a>
+              </li>
+            </c:if>
           </ul>
         </li>
       </ul>
@@ -129,7 +179,7 @@
                <%--sandbox="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">--%>
 
       <%--</iframe>--%>
-    <iframe src = "${contextPath}/report/goReport?type=1"
+    <iframe src = "${contextPath}/report/goReport?type=1.1"
             id="myiframe" name="myiframe" scrolling="no" frameborder="0" ></iframe>
     <%--<iframe src = "http://222.92.8.88:9502/analytics/saw.dll?portalpages&PortalPath=%2Fshared%2F1.2%E5%8E%9F%E4%BA%A7%E5%9C%B0%E5%88%86%E6%9E%90%2F_portal%2F1.2%E5%8E%9F%E4%BA%A7%E5%9C%B0%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&page=%E9%A1%B5%201&NQUser=weblogic&NQPassword=Test_2017" id="myiframe" name="myiframe" scrolling="yes"--%>
             <%--frameborder="0" ></iframe>--%>
@@ -153,30 +203,34 @@
 <%--<script src="${contextPath}/static/js/dist/demo.js"></script>--%>
 <script>
   var flag = false;
+  var flag1 = true;
   $(function(){
       reinitIframe();
       $("#toggleBtn").trigger("click");
-      flag = true;
+//      flag = true;
   });
   $("#toggleBtn").on("click",function(){
       $("#divForShow").css("position","relative");
       iframe = $("#myiframe");
       var bWidth = iframe.parent().css("width");
       bWidth = bWidth.substring(0,bWidth.indexOf("px"));
+      bWidth = parseInt(bWidth);
 //      alert(bWidth);
 //      alert(flag)
       if(flag){
           flag = false;
-          iframe.css("width",bWidth-180+"px");
+          iframe.css("width",bWidth-120+"px");
           toggleWidth("open");
           $("#divForShow").css("left","190px");
-//          var bWidth = iframe.parent().css("width");
-//          iframe.css("width",bWidth);
       }else{
           flag = true;
 		  toggleWidth("close");
           $("#divForShow").css("left","0px");
-          iframe.css("width",bWidth+"px");
+          if(flag1){
+              bWidth += 17;
+              flag1 = false;
+          }
+          iframe.css("width",bWidth-30+"px");
       }
   });
     function reinitIframe(){

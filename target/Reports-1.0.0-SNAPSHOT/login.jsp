@@ -21,7 +21,7 @@
 
 <div class='login'>
   <div class='login_title'>
-    <span>中服焦点</span>
+    <span style = "font-size:13px" >常熟服装城市场采购监管数据分析系统</span>
   </div>
 
   <form action="${contextPath}/login" method="post"  id ="form1">

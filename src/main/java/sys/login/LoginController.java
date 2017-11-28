@@ -24,13 +24,15 @@ public class LoginController  {
     public String login(String username, String password, HttpServletRequest request) {
 
             String[] users = Global.getAccount();
-            String pwd = Global.getPwd();
+            String[] pwd = Global.getPwd();
+            int index = 0;
             for(String name:users){
-                if(name.equals(username)&&pwd.equals(password)){
+                if(name.equals(username)&&pwd[index].equals(password)){
                     UserInfo user = UserUtil.setUser(request,username);
                     UserUtil.setUser(request,user);
                     return "redirect:/main" ;
                 }
+                index++;
             }
         if(StringUtils.isNotEmpty(username)){
             request.setAttribute("msg","密码错误！请联系管理员");
